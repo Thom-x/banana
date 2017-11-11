@@ -1,9 +1,12 @@
-language: java
 sudo: required
-dist: trusty
-group: edge
-jdk: oraclejdk9
-addons:
-  apt:
-    packages:
-      - oracle-java9-installer
+
+services:
+  - docker
+
+language: java
+
+before_install:
+  - docker build .
+
+script:
+  - mvn clean install -B
