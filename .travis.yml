@@ -12,7 +12,6 @@ script:
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login --username=_ --password="$DOCKER_TOKEN" registry.heroku.com
-    docker push USER/REPO;
-    docker push registry.heroku.com/bananaaaaa/web
+    docker login --username="$HEROKU_USERNAME" --password="$HEROKU_TOKEN" registry.heroku.com;
+    docker push registry.heroku.com/bananaaaaa/web;
     fi
